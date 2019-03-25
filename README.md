@@ -5,18 +5,31 @@ Required packages to simulate the Drone
 To install:
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+
 sudo apt update
+
 sudo apt-get install ros-melodic-desktop-full ros-melodic-joy ros-melodic-octomap-ros python-wstool python-catkin-tools protobuf-compiler libgoogle-glog-dev
+
 sudo rosdep init
+
 rosdep update
+
 echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+
 source ~/.bashrc
+
 sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential
+
 sudo apt-get update
+
 sudo apt-get install git
+
 sudo apt-get install gitk git-gui
+
 sudo apt-get update
+
 sudo apt-get install build-essential cmake git libboost-all-dev mercurial libcegui-mk2-dev libopenal-dev libswscale-dev libavformat-dev libavcodec-dev  libltdl3-dev libqwt-dev ruby libusb-1.0-0-dev libbullet-dev libhdf5-dev libgraphviz-dev libgdal-dev
 
 ##CLONE ARDUPILOT REPOSITORY
