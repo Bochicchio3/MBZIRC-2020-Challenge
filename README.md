@@ -120,3 +120,11 @@ fare catkin_create_pkg <NOMEPACKAGE>
 poi entrare in NOMEPACKAGE
 fare le cartelle launch e worlds
 e metterci i file di cui a questo link http://gazebosim.org/tutorials?tut=ros_roslaunch&cat=connect_ros
+ 
+ 
+ 
+export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/<LA VOSTRA PATH TO MBZRIC>
+ 
+export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:~/<IDEM >/build
+ 
+export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins/
