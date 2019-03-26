@@ -24,12 +24,12 @@
     </joint> 
 
     <include>
-      <uri>model://MBZIRColo_front_camera</uri>
+      <uri>model://MBZIRColo_fake_camera</uri>
         <pose>0.5 0 0.3 0 0.5 0</pose>
     </include>
 
     <joint name="front_camera_joint" type="fixed">
-      <child>MBZIRColo_front_camera::base_link</child>
+      <child>MBZIRColo_fake_camera::base_link</child>
       <parent>MBZIRColo_base::base_link</parent>
     </joint>
     <!-- plugins -->

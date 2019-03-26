@@ -4,7 +4,7 @@
     <pose>0 0 0.18 0 0 0</pose>
 
     <link name='base_link'>
-       <inertial>
+      <inertial>
         <mass>0.2</mass>
         <inertia>
           <ixx>0.0001</ixx>
@@ -134,48 +134,49 @@
 
       <sensor name="camera" type="depth">
         <pose>0 0 0 -1.57 -1.57 0</pose>
+        <update_rate>10</update_rate>
         <camera>
           <horizontal_fov>2.0</horizontal_fov>
           <image>
-            <width>640</width>
-            <height>480</height>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
           </image>
           <clip>
             <near>0.05</near>
-            <far>15000</far>
+            <far>100</far>
           </clip>
         </camera>
-        <always_on>1</always_on>
-        <update_rate>10</update_rate>
-        <visualize>1</visualize>
-          <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
-            <baseline>0.2</baseline>
-            <alwaysOn>true</alwaysOn>
-            <!-- Keep this zero, update_rate in the parent <sensor> tag
-              will control the frame rate. -->
-            <updateRate>0.0</updateRate>
-            <cameraName>camera_ir</cameraName>
-            <imageTopicName>/gimball/image_raw</imageTopicName>
-            <cameraInfoTopicName>/gimball/camera_info</cameraInfoTopicName>
-            <depthImageTopicName>/gimball/image_raw</depthImageTopicName>
-            <depthImageInfoTopicName>/gimball/camera_info</depthImageInfoTopicName>
-            <pointCloudTopicName>/gimball/points</pointCloudTopicName>
-            <frameName>gimball</frameName>
-            <pointCloudCutoff>0.05</pointCloudCutoff>
-            <distortionK1>0</distortionK1>
-            <distortionK2>0</distortionK2>
-            <distortionK3>0</distortionK3>
-            <distortionT1>0</distortionT1>
-            <distortionT2>0</distortionT2>
-            <CxPrime>0</CxPrime>
-            <Cx>0</Cx>
-            <Cy>0</Cy>
-            <focalLength>0</focalLength>
-            <hackBaseline>0</hackBaseline>
-          </plugin>
-
+        <!--<always_on>1</always_on>
+        <visualize>1</visualize>-->
+        <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+          <baseline>0.2</baseline>
+          <alwaysOn>true</alwaysOn>
+          <!-- Keep this zero, update_rate in the parent <sensor> tag
+            will control the frame rate. -->
+          <updateRate>0.0</updateRate>
+          <cameraName>gimball_camera_ir</cameraName>
+          <imageTopicName>/gimball/image_raw</imageTopicName>
+          <cameraInfoTopicName>/gimball/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>/gimball/image_raw</depthImageTopicName>
+          <depthImageInfoTopicName>/gimball/camera_info</depthImageInfoTopicName>
+          <pointCloudTopicName>/gimball/points</pointCloudTopicName>
+          <frameName>gimball</frameName>
+          <pointCloudCutoff>0.05</pointCloudCutoff>
+          <distortionK1>0</distortionK1>
+          <distortionK2>0</distortionK2>
+          <distortionK3>0</distortionK3>
+          <distortionT1>0</distortionT1>
+          <distortionT2>0</distortionT2>
+          <CxPrime>0</CxPrime>
+          <Cx>0</Cx>
+          <Cy>0</Cy>
+          <focalLength>0</focalLength>
+          <hackBaseline>0</hackBaseline>
+        </plugin>
       </sensor>
-      
+      <static>false</static>
+      <self_collide>0</self_collide>
     </link>
 
     <joint name='tilt_joint' type='revolute'>
