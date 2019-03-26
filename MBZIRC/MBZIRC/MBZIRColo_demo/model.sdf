@@ -5,7 +5,7 @@
       <uri>model://MBZIRColo_base</uri>
     </include>
 
-    <include>
+    <!--<include>
       <uri>model://gimbal_small_2d</uri>
       <pose>0 -0.01 0.070 1.57 0 1.57</pose>
     </include>
@@ -21,16 +21,24 @@
         <xyz>0 0 1</xyz>
         <use_parent_model_frame>true</use_parent_model_frame>
       </axis>
-    </joint> 
+    </joint> -->
 
     <include>
       <uri>model://MBZIRColo_fake_camera</uri>
-        <pose>0.5 0 0.3 0 0.5 0</pose>
+      <pose>0 -0.01 0.070 1.57 0 1.57</pose>
     </include>
 
-    <joint name="front_camera_joint" type="fixed">
-      <child>MBZIRColo_fake_camera::base_link</child>
+    <joint name="fake_camera_joint" type="revolute">
       <parent>MBZIRColo_base::base_link</parent>
+      <child>MBZIRColo_fake_camera::base_link</child>
+      <axis>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <use_parent_model_frame>true</use_parent_model_frame>
+      </axis>
     </joint>
     <!-- plugins -->
     <plugin name="rotor_0_blade_1" filename="libLiftDragPlugin.so">
