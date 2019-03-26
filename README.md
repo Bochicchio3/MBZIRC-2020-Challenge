@@ -1,8 +1,7 @@
 # MBZIRC2020Simulation
 Required packages to simulate the Drone
 
-
-To install:
+INSTALLARE ROS (+ altri pacchetti)
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
@@ -32,34 +31,30 @@ sudo apt-get update
 
 sudo apt-get install build-essential cmake git libboost-all-dev mercurial libcegui-mk2-dev libopenal-dev libswscale-dev libavformat-dev libavcodec-dev  libltdl3-dev libqwt-dev ruby libusb-1.0-0-dev libbullet-dev libhdf5-dev libgraphviz-dev libgdal-dev
 
-##CLONE ARDUPILOT REPOSITORY
-cd ~
-git clone https://github.com/ArduPilot/ardupilot
-cd ardupilot
-git submodule update --init --recursive
-Tools/scripts/install-prereqs-ubuntu.sh -y
-
-Reload the path (log-out and log-in to make permanent):
-
-. ~/.profile
-
-
-INSTALLATE GAZEBO:  http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install
-curl -sSL http://get.gazebosim.org | sh
-se vi volete male, installatelo compilandelo dal sorgente, ma quello script
-ha sempre funzionato in genere.
-
+-------------------------------------------------
 INSTALLATE ARDUPILOT+SITL:
 http://ardupilot.org/dev/docs/setting-up-sitl-on-linux.html
 http://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux
 questi due link installano ardupilot in sè, gia sono molto più utili
 
+STEP 1:CLONE ARDUPILOT REPOSITORY
 
+cd ~ (o cd dove vi pare, basta che poi vi ricordiate la directory dove la avete scaricata)
+git clone https://github.com/ArduPilot/ardupilot
+cd ardupilot
+git submodule update --init --recursive
 
->>Add some directories to your search path (Facultative)
-vale a dire: aggiungete queste directory al path in cui il vostro pc va a cercare per far partire
-le cose;
-ATTENZIONE: ONLY if you didn’t run the install-prereqs script from previous step.
+STEP 2:
+Uno script che fa cose
+
+Tools/scripts/install-prereqs-ubuntu.sh -y 
+
+Reload the path (log-out and log-in to make permanent):
+
+. ~/.profile  
+ 
+STEP 2-alternativa
+ATTENZIONE: ONLY if you didn’t run the install-prereqs script from previous step. 
 
 Add the following lines to the end of your “.bashrc” in your home directory
 (notice the . on the start of that filename. Also, this is a hidden file,
@@ -68,32 +63,59 @@ Add the following lines to the end of your “.bashrc” in your home directory
 export PATH=$PATH:$HOME/ardupilot/Tools/autotest
 export PATH=/usr/lib/ccache:$PATH
 
-Then reload your PATH by using the “dot” command in a terminal
+Then reload your PATH by using the “dot” command in a terminal, oppure anche solo chiudete il terminale e riapritelo
 
 . ~/.bashrc
-(anche solo chiudere e riaprire il terminale, oppure riavviare il pc dovrebbe bastare
+
+per vedere se funziona aprite un terminale
+
+cd ardupilot/ArduCopter
+sim_vehicle.py -j4 --map --console
+
+se si apre una cosa simile a quella che vedete sul sito, allora a posto.
+per testarla, quando si apre il terminale mavlink, scrivete
+
+mode GUIDED
+arm throttle
+takeoff 100 
+
+potete fare destro click sulla mappa e dire al drone "fly to"....
+
+
+----------------------------------------------------------------------------------
+INSTALLATE GAZEBO:  http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install
+
+curl -sSL http://get.gazebosim.org | sh
+
+se vi volete male, installatelo compilandelo dal sorgente, ma lo script in genere funziona
+
 
 
 -----------------------------------------------------------------------------------
-INSTALLATE LE COSE CHE PERMETTONO A GAZEBO DI COMINCARE CON ArduPilot
+COMUNICAZIONE GAZEBO- ARDUPILOT
 
 https://web.archive.org/web/20180503141535/http://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html
 ATTENZIONE: questo link è più una reference per avere le fonti, non dovete seguirla passo passo o
 vi troverete a disisntallare gazebo e reinstallarlo (male), creando casino con le
 dipendenze.
+ATTENZIONE:
+ -questo link è più per avere un riferimento della guida da cui sono tratte queste istruzione, non dovete seguirla passo passo o
+vi troverete a disisntallare gazebo e reinstallarlo (male, sembrerebbe).
+ -questo step della guida non dovrebbe essere più necessario, per evitare di scaricare un database enorme di modelli, ma prima di metterci la mano sul fuoco vorrei essere sicuro
 
+##SCARICATE UN DATABASE DI MODELLI DI GAZEBO
 
-#####ISTRUZIONI PER SCARICARE MODELLI DI GAZEBO#######
+Scaricateli in una determinata cartella: /home/<user>/gazebo_ws/ 
+Potete anche cambiarla, ma poi dovete stare attenti al path che aggiungete al bashrc 
 
-Make a gazebo workspace
-      cd ~
-      mkdir ~/gazebo_ws
-      cd ~/gazebo_ws/
+cd ~
+mkdir ~/gazebo_ws
+cd ~/gazebo_ws/
       
 hg clone https://bitbucket.org/osrf/gazebo_models ~/gazebo_ws/gazebo_models
 cd ~/gazebo_ws/gazebo_models
 hg checkout zephyr_demos
-echo 'export GAZEBO_MODEL_PATH=~/gazebo_ws/gazebo_models' >> ~/.bashrc
+echo 'export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/gazebo_ws/gazebo_models' >> ~/.bashrc
 source ~/.bashrc
 
 
