@@ -49,12 +49,12 @@
               will control the frame rate. -->
             <updateRate>0.0</updateRate>
             <cameraName>camera_ir</cameraName>
-            <imageTopicName>/camera/depth/image_raw</imageTopicName>
-            <cameraInfoTopicName>/camera/depth/camera_info</cameraInfoTopicName>
-            <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
-            <depthImageInfoTopicName>/camera/depth/camera_info</depthImageInfoTopicName>
-            <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
-            <frameName>camera_link</frameName>
+            <imageTopicName>/myfront_camera/image_raw</imageTopicName>
+            <cameraInfoTopicName>/myfront_camera/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/myfront_camera/image_raw</depthImageTopicName>
+            <depthImageInfoTopicName>/myfront_camera/camera_info</depthImageInfoTopicName>
+            <pointCloudTopicName>/myfront_camera/point_cloud</pointCloudTopicName>
+            <frameName>myfront_camera</frameName>
             <pointCloudCutoff>0.05</pointCloudCutoff>
             <distortionK1>0</distortionK1>
             <distortionK2>0</distortionK2>
