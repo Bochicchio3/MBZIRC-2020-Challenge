@@ -134,7 +134,7 @@ DA CATKIN WORSKPACE
 ```
 mkdir src
 ```
-entrare in src (cd ```src/```)
+entrare in src (```cd src/```)
 ```
 fare catkin_create_pkg <NOMEPACKAGE>
 ```
