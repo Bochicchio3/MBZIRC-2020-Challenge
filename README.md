@@ -10,6 +10,7 @@ sudo apt update
 sudo apt-get install ros-melodic-desktop-full ros-melodic-joy ros-melodic-octomap-ros python-wstool python-catkin-tools protobuf-compiler libgoogle-glog-dev
 
 sudo apt-get install geographiclib-tools 
+sudo apt-get install libgeographic-dev
 
 sudo rosdep init
 rosdep
