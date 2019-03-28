@@ -87,13 +87,12 @@ dipendenze.
 
 Make a gazebo workspace
       cd ~
-      mkdir ~/gazebo_ws
-      cd ~/gazebo_ws/
+      cd ~/.gazebo
       
-hg clone https://bitbucket.org/osrf/gazebo_models ~/gazebo_ws/gazebo_models
-cd ~/gazebo_ws/gazebo_models
+hg clone https://bitbucket.org/osrf/gazebo_models ~/.gazebo/models
+cd ~/.gazebo/models
 hg checkout zephyr_demos
-echo 'export GAZEBO_MODEL_PATH=~/gazebo_ws/gazebo_models' >> ~/.bashrc
+echo 'export GAZEBO_MODEL_PATH=~/.gazebos/models' >> ~/.bashrc
 source ~/.bashrc
 
 
@@ -120,3 +119,11 @@ fare catkin_create_pkg <NOMEPACKAGE>
 poi entrare in NOMEPACKAGE
 fare le cartelle launch e worlds
 e metterci i file di cui a questo link http://gazebosim.org/tutorials?tut=ros_roslaunch&cat=connect_ros
+
+
+
+
+
+mkdir -p catkin_ws/src
+cd ~/catkin_ws/src
+catkin_init_workspace` 
