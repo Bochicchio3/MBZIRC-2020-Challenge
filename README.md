@@ -11,6 +11,8 @@ sudo apt-get install ros-melodic-desktop-full ros-melodic-joy ros-melodic-octoma
 
 sudo apt-get install geographiclib-tools 
 sudo apt-get install libgeographic-dev
+sudo apt-get install ros-melodic-opencv-apps
+
 
 sudo rosdep init
 rosdep
