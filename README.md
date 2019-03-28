@@ -9,6 +9,8 @@ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C
 sudo apt update
 sudo apt-get install ros-melodic-desktop-full ros-melodic-joy ros-melodic-octomap-ros python-wstool python-catkin-tools protobuf-compiler libgoogle-glog-dev
 
+sudo apt-get install geographiclib-tools 
+
 sudo rosdep init
 rosdep
 echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
