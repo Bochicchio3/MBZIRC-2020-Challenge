@@ -176,14 +176,14 @@
     </link>
 
     <joint name='tilt_joint' type='revolute'>
-       <parent>base_link</parent>
-       <child>tilt_link</child>
+       <parent>MBZIRColo_fake_camera::base_link</parent>
+       <child>MBZIRColo_fake_camera::tilt_link</child>
 
-      <physics>
+      <!--<physics>
         <ode>
           <implicit_spring_damper>1</implicit_spring_damper>
         </ode>
-      </physics>
+      </physics>-->
 
       <axis>
         <xyz>1 0 0</xyz>

@@ -23,7 +23,7 @@
       </axis>
     </joint> -->
 
-    <include>
+    <!--<include>
       <uri>model://MBZIRColo_fake_camera</uri>
       <pose>0 -0.01 0.070 1.57 0 1.57</pose>
     </include>
@@ -39,6 +39,16 @@
         <xyz>0 0 1</xyz>
         <use_parent_model_frame>true</use_parent_model_frame>
       </axis>
+    </joint>-->
+
+    <include>
+      <uri>model://MBZIRColo_hope_camera</uri>
+      <pose>0 -0.01 0.070 1.57 0 1.57</pose>
+    </include>
+
+    <joint name="hope_camera_joint" type="fixed">
+      <parent>MBZIRColo_base::base_link</parent>
+      <child>MBZIRColo_hope_camera::base_link</child>
     </joint>
     <!-- plugins -->
     <plugin name="rotor_0_blade_1" filename="libLiftDragPlugin.so">
