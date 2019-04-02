@@ -69,7 +69,6 @@
 
 
     <link name='tilt_link'>
-      <pose>1 1 1 0 0 0</pose>
       <inertial>
         <mass>0.01</mass>
         <inertia>
@@ -207,7 +206,7 @@
          <!-- <velocity>-1</velocity>-->
         </limit>
       </axis>
-      <pose>1 0 0 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose> <!-- spostare la posizione del giunto lungo l'asse del giunto rotiodale non cambia nulla.....-->
     
     
     </joint>
