@@ -149,11 +149,11 @@ e metterci i file di cui a questo link http://gazebosim.org/tutorials?tut=ros_ro
  
  
 sta roba serve, ma è da aggiornare
-``` 
+```
 export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/<LA VOSTRA PATH TO MBZRIC>
 export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:~/<IDEM >/build
 export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins/
-
+```
 
 SE SIETE SU MACCHINA VIRTUALE 
  export SVGA_VGPU10=0
@@ -161,27 +161,27 @@ SE SIETE SU MACCHINA VIRTUALE
  Bisogna fare due operazioni in arducopter: modificare i parametri, e aggiungere il frame da chamiare per l-arducopter
  Aggiungere i parametri mav relativi al drone 
  
- Nella cartella '''ardupilot/Tools/autotest'''
+ Nella cartella ```ardupilot/Tools/autotest```
  
- 1)copiare la cartella ''''MBZIRC-provaParams'''
- 2)entrare in '''/pysim''' e modificare il '''vehicleinfo.py''' :
- apritelo, e quando vedete la sezione di codice '''
+ 1)copiare la cartella ```MBZIRC-provaParams```
+ 2)entrare in ```pysim``` e modificare il '''vehicleinfo.py''' :
+ apritelo, e quando vedete la sezione di codice ```
              "gazebo-iris": {
                 "waf_target": "bin/arducopter",
                 "default_params_filename": ["default_params/copter.parm",
                                             "default_params/gazebo-iris.parm"],
-            },
-'''
+            },```
+
 SOTTO A QUESTA RIGA, DOPO LA VIRGOLA (l'indentazione e l'intuito dovrebbero aiutarvi a capire dopo quale parentesi dovreste metterlo) inserite
-'''
+```
             #progetto roccella
             "gazebo-MBZIRColo":{
                 "waf_target": "bin/arducopter", #fotter gay
                 "default_params_filename":["default_params/copter.parm",
                                             "MBZIRC-provaParams/gazebo-MBZIRColo.parm"],
             },
-'''
+```
 
-e provate a lanciare: dalla directory '''ardupilot/ArduCopter''' --> 
+e provate a lanciare: dalla directory ```ardupilot/ArduCopter``` --> 
 
-'''sim_vehicle.py --console -f gazebo-MBZIRColo''' e dopo aver compilato un po di cose, dovrebbe dirvi che aspetta un heartbeat (fyi, di gazebo) sulla 127.0.0.1:qualcosa 
+```sim_vehicle.py --console -f gazebo-MBZIRColo```  e dopo aver compilato un po di cose, dovrebbe dirvi che aspetta un heartbeat (fyi, di gazebo) sulla 127.0.0.1:qualcosa 
