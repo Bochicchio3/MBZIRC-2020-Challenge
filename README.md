@@ -153,4 +153,9 @@ sta roba serve, ma è da aggiornare
 export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/<LA VOSTRA PATH TO MBZRIC>
 export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:~/<IDEM >/build
 export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins/
-```
+
+
+SE SIETE SU MACCHINA VIRTUALE 
+ export SVGA_VGPU10=0
+ 
+ 
