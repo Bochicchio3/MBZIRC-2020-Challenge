@@ -165,21 +165,24 @@ SE SIETE SU MACCHINA VIRTUALE
  
  1)copiare la cartella ```MBZIRC-provaParams```
  2)entrare in ```pysim``` e modificare il '''vehicleinfo.py''' :
- apritelo, e quando vedete la sezione di codice ```
-             "gazebo-iris": {
-                "waf_target": "bin/arducopter",
-                "default_params_filename": ["default_params/copter.parm",
-                                            "default_params/gazebo-iris.parm"],
-            },```
+ apritelo, e quando vedete la sezione di codice 
+ ```
+"gazebo-iris": {
+   "waf_target": "bin/arducopter",
+   "default_params_filename": ["default_params/copter.parm",
+                               "default_params/gazebo-iris.parm"],
+},
+```
 
 SOTTO A QUESTA RIGA, DOPO LA VIRGOLA (l'indentazione e l'intuito dovrebbero aiutarvi a capire dopo quale parentesi dovreste metterlo) inserite
+
 ```
-            #progetto roccella
-            "gazebo-MBZIRColo":{
-                "waf_target": "bin/arducopter", #fotter gay
-                "default_params_filename":["default_params/copter.parm",
-                                            "MBZIRC-provaParams/gazebo-MBZIRColo.parm"],
-            },
+#progetto roccella
+"gazebo-MBZIRColo":{
+    "waf_target": "bin/arducopter", #fotter gay
+    "default_params_filename":["default_params/copter.parm",
+                                "MBZIRC-provaParams/gazebo-MBZIRColo.parm"],
+},
 ```
 
 e provate a lanciare: dalla directory ```ardupilot/ArduCopter``` --> 
