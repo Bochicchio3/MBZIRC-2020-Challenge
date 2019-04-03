@@ -1,3 +1,0 @@
-/home/ema/Scrivania/MBZIRC/build/CMakeFiles/rebuild_cache.dir
-/home/ema/Scrivania/MBZIRC/build/CMakeFiles/myLibArducopterPlugin.dir
-/home/ema/Scrivania/MBZIRC/build/CMakeFiles/edit_cache.dir
