@@ -112,6 +112,33 @@ cd ..
 catkin build
 source devel/setup.bash
 ```
+## 6) Modify ARDUCOPTER Directory
+
+You must do two operations in arducopter: modify the parameters for the custom drone and add the custom frame. 
+
+##### 6.1)Copy the folder MBZIRC-provaParams from ~/catkin_ws/src/mbzirc_SITL to ardupilot/Tools/autotest
+
+#####  6.2)Modify '''vehicleinfo.py''' :
+In ```ardupilot/Tools/autotest/pysim```
+Open the file, and ight under:
+ ```
+"gazebo-iris": {
+   "waf_target": "bin/arducopter",
+   "default_params_filename": ["default_params/copter.parm",
+                               "default_params/gazebo-iris.parm"],
+},
+```
+you should paste:
+```
+#progetto roccella
+"gazebo-MBZIRColo":{
+    "waf_target": "bin/arducopter",
+    "default_params_filename":["default_params/copter.parm",
+                                "MBZIRC-provaParams/gazebo-MBZIRColo.parm"],
+},
+```
+From  ```ardupilot/ArduCopter``` try to launch ```sim_vehicle.py --console -f gazebo-MBZIRColo``` 
+After compiling, it should be waiting for an heartbeat (from Gazebo) on the port 127.0.0.1:... 
 
 ```
 echo 'export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/$(rospack find mbzirc_SITL)/gazebo_models' >> ~/.bashrc
